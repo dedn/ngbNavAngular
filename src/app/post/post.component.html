@@ -1,0 +1,27 @@
+
+<!--<div class="m5-4">-->
+<!--  <ul ngbNav #nav="ngbNav"  [activeId]="route.fragment | async" class="nav-tabs">-->
+<!--    <li [ngbNavItem]="'one'">-->
+<!--      <a ngbNavLink routerLink="." [fragment]="'one'">First</a>-->
+<!--      <ng-template ngbNavContent>-->
+<!--        <app-tab1></app-tab1>-->
+<!--      </ng-template>-->
+<!--    </li>-->
+<!--    <li [ngbNavItem]="'two'">-->
+<!--      <a ngbNavLink routerLink="." [fragment]="'two'">Second</a>-->
+<!--      <ng-template ngbNavContent>-->
+<!--        <app-tab2></app-tab2>-->
+<!--      </ng-template>-->
+<!--    </li>-->
+<!--  </ul>-->
+<!--  <div [ngbNavOutlet]="nav"></div>-->
+
+  <ul ngbNav [activeId]="route.fragment | async" class="nav-tabs">
+    <li [ngbNavItem]="link.fragment" *ngFor="let link of links">
+      <a ngbNavLink routerLink="." [fragment]="link.fragment">{{ link.title }}</a>
+    </li>
+  </ul>
+
+  <!-- and an actual outlet elsewhere -->
+  <router-outlet name="links"></router-outlet>
+<!--</div>-->
